@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FileSystemEvent",
+  "description": "Shared contract: driver -> monitor-service -> feature-extraction",
+  "type": "object",
+  "required": ["event_id", "timestamp", "pid", "process_name", "operation", "file_path", "source"],
+  "properties": {
+    "event_id": { "type": "string", "description": "UUID, one per event" },
+    "session_id": { "type": ["string", "null"], "description": "Groups all events from one simulator run or one monitoring session" },
+    "timestamp": { "type": "string", "format": "date-time", "description": "ISO 8601, UTC" },
+    "pid": { "type": "integer" },
+    "process_name": { "type": "string", "description": "e.g. notepad.exe" },
+    "process_path": { "type": ["string", "null"], "description": "Full path to the executable, when available" },
+    "operation": { "type": "string", "enum": ["CREATE", "WRITE", "RENAME", "DELETE", "SET_INFO", "READ"] },
+    "file_path": { "type": "string" },
+    "file_extension_before": { "type": ["string", "null"] },
+    "file_extension_after": { "type": ["string", "null"] },
+    "file_size_bytes": { "type": ["integer", "null"] },
+    "source": { "type": "string", "enum": ["kernel_driver", "watchdog_dev", "simulator"], "description": "kernel_driver = real Windows driver output, watchdog_dev = dev-machine stand-in via the watchdog library, simulator = synthetic events" },
+    "label": { "type": ["integer", "null"], "enum": [0, 1, null], "description": "0 = benign run, 1 = ransomware-pattern run, null = unlabeled" }
+  }
+}

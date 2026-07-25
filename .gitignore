@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+.env
+
+# Data — keep raw generated datasets out of git unless you want them versioned
+feature-extraction/output/
+ml-model/data/
+*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Windows driver build artifacts
+*.obj
+*.pdb
+*.sys
+x64/
+Debug/
+Release/
