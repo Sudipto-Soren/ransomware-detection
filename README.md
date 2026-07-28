@@ -342,10 +342,10 @@ Full interactive docs available at `http://localhost:8000/docs` when the backend
 
 | Name | USN | Track |
 |---|---|---|
-| Sachin Kumar Tiwari | 1SI23IS084 | ML & Data (Track B) |
-| Shabd Swaroop | 1SI23IS092 | Backend & Recovery (Track C) |
-| Sudipto Soren | 1SI23IS106 | Frontend & Integration (Track D) |
-| Vishal Patil | 1SI23IS124 | Kernel Driver (Track A, Windows) |
+| Sachin Kumar Tiwari | 1SI23IS084 | Frontend & Integration |
+| Shabd Swaroop | 1SI23IS092 | Backend & Recovery |
+| Sudipto Soren | 1SI23IS106 | ML & Data |
+| Vishal Patil | 1SI23IS124 | Kernel Driver |
 
 **Guide:** Dr. Ramu S
 **Batch:** B31 — Department of ISE, SIT Tumakuru
