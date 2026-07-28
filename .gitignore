@@ -1,27 +1,33 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
 .venv/
 venv/
+*.egg-info/
 
 # Node
 node_modules/
 dist/
 .env
 
-# Data — keep raw generated datasets out of git unless you want them versioned
-feature-extraction/output/
-ml-model/data/
-*.csv
+# Generated during runs — easily recreated, often large
+simulator/test-sandbox/
+simulator/logs/
+backend/ransomdb.sqlite
+backend/sync-staging/
+backend/quarantine/
+backend/version-store/
 
-# OS
+# Keep model files (needed by backend) but exclude large plot PNGs
+ml-model/plots/
+
+# Keep features.csv (needed for retraining) — don't exclude it
+
+# macOS
 .DS_Store
-Thumbs.db
+.AppleDouble
 
-# Windows driver build artifacts
-*.obj
-*.pdb
-*.sys
-x64/
-Debug/
-Release/
+# VS Code / editor
+.vscode/
+.idea/

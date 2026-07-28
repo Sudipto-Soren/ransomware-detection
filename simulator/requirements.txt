@@ -1,0 +1,29 @@
+# ─── Data & ML ────────────────────────────────────────────────────────────────
+scikit-learn>=1.4.0
+xgboost>=2.0.0
+pandas>=2.2.0
+numpy>=1.26.0
+joblib>=1.3.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# ─── System monitoring ────────────────────────────────────────────────────────
+# psutil reads CPU / memory per process — one of your named features.
+# Works on Mac for dev; also works on Windows for the final deployment.
+psutil>=5.9.0
+
+# ─── File-system watching ─────────────────────────────────────────────────────
+# watchdog is the dev-machine stand-in for real kernel driver events.
+# When the real driver is ready, you swap it in; feature-extraction stays
+# the same because both outputs speak the same event schema.
+watchdog>=4.0.0
+
+# ─── Backend (Track C) ────────────────────────────────────────────────────────
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+pydantic>=2.0.0
+
+# ─── Utilities ────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0
