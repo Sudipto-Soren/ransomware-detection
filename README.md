@@ -10,8 +10,6 @@
 ![License](https://img.shields.io/badge/License-Academic-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=flat-square)
 
-*Major Project — Department of Information Science and Engineering*
-*Siddaganga Institute of Technology, Tumakuru — 2025–26*
 
 </div>
 
@@ -336,22 +334,6 @@ Full interactive docs available at `http://localhost:8000/docs` when the backend
 | `POST` | `/api/recovery/restore/{id}` | Trigger file rollback for a session |
 | `GET` | `/api/cloud/quarantine` | List files blocked from cloud sync |
 
----
-
-## Team
-
-| Name | USN | Track |
-|---|---|---|
-| Sachin Kumar Tiwari | 1SI23IS084 | Frontend & Integration |
-| Shabd Swaroop | 1SI23IS092 | Backend & Recovery |
-| Sudipto Soren | 1SI23IS106 | ML & Data |
-| Vishal Patil | 1SI23IS124 | Kernel Driver |
-
-**Guide:** Dr. Ramu S
-**Batch:** B31 — Department of ISE, SIT Tumakuru
-**Academic Year:** 2025–26
-
----
 
 <div align="center">
 <sub>Built as a major project for academic purposes. The ransomware simulator is safe, reversible, and sandbox-contained.</sub>
