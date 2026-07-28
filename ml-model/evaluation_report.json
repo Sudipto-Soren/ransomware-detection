@@ -1,0 +1,60 @@
+{
+  "best_model": "Random Forest",
+  "models": [
+    {
+      "model": "Random Forest",
+      "metrics": {
+        "model": "Random Forest",
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "model": "XGBoost",
+      "metrics": {
+        "model": "XGBoost",
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "model": "Isolation Forest",
+      "metrics": {
+        "model": "Isolation Forest",
+        "accuracy": 0.625,
+        "precision": 0.6,
+        "recall": 0.75,
+        "f1": 0.6667
+      }
+    }
+  ],
+  "feature_cols": [
+    "session_duration_sec",
+    "total_events",
+    "write_count",
+    "read_count",
+    "rename_count",
+    "delete_count",
+    "files_modified_per_sec",
+    "unique_files_touched",
+    "unique_dirs_touched",
+    "overwrite_ratio",
+    "extension_change_count",
+    "extension_change_ratio",
+    "mean_entropy_delta",
+    "max_entropy_delta",
+    "sequential_score",
+    "max_files_per_10sec"
+  ],
+  "dataset": {
+    "total_rows": 80,
+    "train_rows": 64,
+    "test_rows": 16,
+    "label_0_count": 40,
+    "label_1_count": 40
+  }
+}
