@@ -1,18 +1,12 @@
 [
   "session_duration_sec",
-  "total_events",
+  "files_modified_per_sec",
+  "overwrite_ratio",
+  "sequential_score",
+  "max_files_per_10sec",
+  "unique_dirs_touched",
   "write_count",
   "read_count",
-  "rename_count",
-  "delete_count",
-  "files_modified_per_sec",
   "unique_files_touched",
-  "unique_dirs_touched",
-  "overwrite_ratio",
-  "extension_change_count",
-  "extension_change_ratio",
-  "mean_entropy_delta",
-  "max_entropy_delta",
-  "sequential_score",
-  "max_files_per_10sec"
+  "mean_entropy_delta"
 ]
