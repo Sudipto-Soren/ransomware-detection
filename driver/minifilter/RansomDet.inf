@@ -1,0 +1,84 @@
+; RansomDet.inf
+; Installation file for the RansomDet minifilter driver.
+;
+; Install:
+;   Run install.bat as Administrator (provided separately)
+;   OR: pnputil /add-driver RansomDet.inf /install
+;
+; Uninstall:
+;   sc stop RansomDet
+;   sc delete RansomDet
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = "ActivityMonitor"
+ClassGuid   = {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}
+Provider    = %ManufacturerName%
+DriverVer   = 01/01/2026,1.0.0.0
+CatalogFile = RansomDet.cat
+
+; ── DestinationDirs ───────────────────────────────────────────────────────────
+[DestinationDirs]
+DefaultDestDir          = 12        ; %windir%\system32\drivers
+RansomDet.DriverFiles   = 12
+
+; ── Source disk information ───────────────────────────────────────────────────
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+RansomDet.sys = 1,,
+
+; ── Default install ───────────────────────────────────────────────────────────
+[DefaultInstall.NT$ARCH$]
+OptionDesc = %ServiceDescription%
+CopyFiles  = RansomDet.DriverFiles
+
+[DefaultInstall.NT$ARCH$.Services]
+AddService = %ServiceName%,,RansomDet.Service
+
+; ── Default uninstall ─────────────────────────────────────────────────────────
+[DefaultUninstall.NT$ARCH$]
+DelFiles   = RansomDet.DriverFiles
+
+[DefaultUninstall.NT$ARCH$.Services]
+DelService = %ServiceName%,0x200
+
+; ── Service installation ──────────────────────────────────────────────────────
+[RansomDet.Service]
+DisplayName    = %ServiceName%
+Description    = %ServiceDescription%
+ServiceBinary  = %12%\RansomDet.sys      ; %windir%\System32\Drivers\RansomDet.sys
+ServiceType    = 2                       ; SERVICE_FILE_SYSTEM_DRIVER
+StartType      = 3                       ; SERVICE_DEMAND_START (start manually)
+ErrorControl   = 1                       ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = "FSFilter Activity Monitor"
+AddReg         = RansomDet.AddRegistry
+
+[RansomDet.AddRegistry]
+; Altitude: the position of this filter in the filter stack.
+; 360010 = FSFilter Activity Monitor range (360000-369999).
+; Lower altitude = closer to the disk. Higher = closer to the application.
+; We sit in the activity monitor range — above encryption filters (140000s)
+; but below backup filters (370000s), so we see real plaintext content.
+HKR,,"SupportedFeatures",0x00010001,0x3
+HKR,"Instances","DefaultInstance",0x00000000,%DefaultInstance%
+HKR,"Instances\"%DefaultInstance%,"Altitude",0x00000000,%DefaultAltitude%
+HKR,"Instances\"%DefaultInstance%,"Flags",0x00010001,0x0
+
+; ── File copy section ─────────────────────────────────────────────────────────
+[RansomDet.DriverFiles]
+RansomDet.sys,,,0x00000040   ; COPYFLG_OVERWRITE_OLDER_ONLY
+
+; ── Filter class setup ────────────────────────────────────────────────────────
+; Required: register the FSFilter Activity Monitor class if not already present
+[FilterClass.NT]
+
+; ── Strings ───────────────────────────────────────────────────────────────────
+[Strings]
+ManufacturerName    = "SIT Tumakuru Batch B31"
+ServiceDescription  = "AI-Assisted Ransomware Detection Minifilter"
+ServiceName         = "RansomDet"
+DiskId1             = "RansomDet Device Installation Disk"
+DefaultInstance     = "RansomDet Instance"
+DefaultAltitude     = "360010"
